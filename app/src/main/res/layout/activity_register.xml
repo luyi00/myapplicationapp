@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/phoneNumber_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/phoneNumber"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:layout_marginTop="200dp"/>
+
+    <EditText
+        android:id="@+id/password_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/yanCode_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:hint="@string/verCode"
+            android:inputType="number"
+            android:maxLength="6"/>
+
+        <Button
+            android:id="@+id/yanButton_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:text="@string/sendPass"
+            style="@style/textStyle_2"
+            android:background="@drawable/phonenumber"
+            android:enabled="false"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/nextStep_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/register"
+        style="@style/textStyle_2"
+        android:background="@drawable/phonenumber"
+        android:enabled="false"/>
+
     <TextView
+        android:id="@+id/agreement_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注册界面"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/using"
+        android:textColor="@color/colorHtml"/>
 </LinearLayout>

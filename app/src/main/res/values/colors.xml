@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorBlack" >#000000</color>
     <color name="colorAnHong">#F42531</color>
+    <color name="colorHtml">#FF0098FE</color>
+    <color name="colorHtml_1">#707070</color>
 </resources>

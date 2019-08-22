@@ -4,4 +4,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="password">请输入密码</string>
+    <string name="phoneNumber">请输入手机号</string>
+    <string name="using">注册即代表阅读并同意使用条款和隐私政策</string>
+    <string name="sendPass">发送验证码</string>
+    <string name="verCode">请输入验证码</string>
+    <string name="register">立即注册</string>
 </resources>
