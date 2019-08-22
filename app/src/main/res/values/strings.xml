@@ -10,4 +10,9 @@
     <string name="sendPass">发送验证码</string>
     <string name="verCode">请输入验证码</string>
     <string name="register">立即注册</string>
+    <string name="forgetPassword">忘记密码</string>
+    <string name="user">请输入账号</string>
+    <string name="enter">登入</string>
+    <string name="forget_direction">你可以通过绑定的手机进行重置密码</string>
+    <string name="forget_commit">获取验证码</string>
 </resources>
