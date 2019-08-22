@@ -19,13 +19,15 @@ public class FirstFragment extends Fragment {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
             }
         });
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getActivity(),AboutApp.class);
+                startActivity(intent);
             }
         });
         return v;
