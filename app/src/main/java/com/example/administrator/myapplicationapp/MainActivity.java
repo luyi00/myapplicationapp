@@ -1,7 +1,7 @@
 package com.example.administrator.myapplicationapp;
 //首页
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     //取得Fragment管理器
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private void init(){
         //取得Fragment管理器
         Fragment firstFragment = new FirstFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //默认下将firstFragment添加到容器中
         transaction.add(R.id.fragment_container,firstFragment);
         //提交事务

@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.view.MenuItem;
+
 import java.util.ArrayList;
 import java.util.List;
 public class CollectActivity extends AppCompatActivity {
@@ -25,15 +27,26 @@ public class CollectActivity extends AppCompatActivity {
 
         tableLayout = findViewById(R.id.tab);
         viewPager = findViewById(R.id.viewpager);
-
+        //收藏界面的四个fragment
         fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(new FirstFragment());
+        fragmentList.add(new collectfragmentAll());
         fragmentList.add(new SecondFragment());
         fragmentList.add(new ThirdFragment());
         fragmentList.add(new ForthFragment());
-        FragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, new String[]{"第一栏", "第二栏", "第三栏","4"});
+        FragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, new String[]{"全部", "达人动态", "科研成果","特色活动"});
         viewPager.setAdapter(adapter);
 
         tableLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            //重写ToolBar返回按钮的行为，关闭此Activity
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
