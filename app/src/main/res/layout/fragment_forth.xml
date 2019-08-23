@@ -1,6 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:id="@+id/layout01">
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="#9b9b9b"
+            android:alpha="0.3"/>
+        <ImageButton
+            android:id="@+id/btn_setting"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true"/>
+        <ImageButton
+            android:id="@+id/btn_message"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true"/>
+        <ImageButton
+            android:id="@+id/camera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="70dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"/>
+        <ImageView
+            android:id="@+id/head_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="55dp"
+            android:layout_alignParentTop="true"/>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/head_image"
+            android:layout_marginLeft="30dp"
+            android:text="用户名显示"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/number01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_name"
+            android:layout_marginLeft="60dp"
+            android:text="3"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:id="@+id/number01uder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/number01"
+            android:layout_marginLeft="-8dp"
+            android:text="收藏"
+            android:textSize="18dp"
+            android:layout_alignLeft="@+id/number01"/>
+        <TextView
+            android:id="@+id/number02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_name"
+            android:layout_centerHorizontal="true"
+            android:text="111"
+            android:textSize="35dp"
+            android:layout_marginTop="-15dp"/>
+
+        <TextView
+            android:id="@+id/number02uder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/number02"
+            android:layout_marginLeft="-6dp"
+            android:text="信用积分"
+            android:textSize="18dp"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/number03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-2dp"
+            android:layout_marginRight="60dp"
+            android:text="3"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/number03uder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/number03"
+            android:layout_alignLeft="@+id/number03"
+            android:layout_marginLeft="-25dp"
+            android:text="交易记录"
+            android:textSize="18dp"/>
+        </RelativeLayout>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:id="@+id/layout02"
+            android:layout_below="@+id/layout01"
+            android:layout_marginLeft="20dp">
+                <TextView
+                    android:id="@+id/records"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="浏览记录"
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/records_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="更多     >"
+                    android:textSize="15dp"
+                    android:layout_marginTop="-7dp"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentRight="true"/>
+                <ImageButton
+                    android:id="@+id/record01"
+                    android:layout_width="110dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/records"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    />
+                <ImageButton
+                    android:id="@+id/record02"
+                    android:layout_width="110dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/records"
+                    android:layout_toRightOf="@+id/record01"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                     />
+                <ImageButton
+                    android:id="@+id/record03"
+                    android:layout_width="110dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/records"
+                    android:layout_toRightOf="@+id/record02"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    />
+
+        </RelativeLayout>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:id="@+id/layout03"
+            android:layout_below="@+id/layout02"
+            android:layout_marginLeft="20dp">
+                <TextView
+                    android:id="@+id/buffer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="下载缓存"
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/buffer_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="更多     >"
+                    android:textSize="15dp"
+                    android:layout_marginTop="-7dp"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentRight="true"/>
+                <ImageButton
+                    android:id="@+id/buffer01"
+                    android:layout_width="110dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/buffer"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    />
+                <ImageButton
+                    android:id="@+id/buffer02"
+                    android:layout_width="110dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/buffer"
+                    android:layout_toRightOf="@+id/buffer01"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    />
+                <ImageButton
+                    android:id="@+id/buffer03"
+                    android:layout_width="110dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/buffer"
+                    android:layout_toRightOf="@+id/buffer02"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    />
+        </RelativeLayout>
+
+</RelativeLayout>

@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_below="@id/user"
+        android:layout_below="@+id/user"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:drawableLeft="@drawable/icon_password"

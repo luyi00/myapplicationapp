@@ -12,7 +12,7 @@
         <activity android:name=".ForgetActivity"></activity>
         <activity
             android:name=".MainActivity"
-            android:label="首页">
+            android:label="易技能">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

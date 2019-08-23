@@ -29,33 +29,23 @@ public class MainActivity extends AppCompatActivity {
                     Fragment firstFragment = new FirstFragment();
                     //将新建的firstFragment替换容器中的其他片段，这将重新加载布局文件。
                     transaction.replace(R.id.fragment_container,firstFragment);
-                    //我们在替换时可以将替换的片段加入到回退栈中，这样我们按下返回
-                    //按钮时，系统会重新显示替换的片段，读者可以体验一下
+                    //我们在替换时可以将替换的片段加入到回退栈中，按下返回按钮时，系统会重新显示替换的片段
                     // transaction.addToBackStack(null);
                     //提交事务
                     transaction.commit();
                     return true;
                 case R.id.navigation_community:
                     Fragment secondFragment = new SecondFragment();
-                    //将新建的secondFragment替换容器中的其他片段，这将重新加载布局文件。
-                    //final Intent intent=getIntent();
-                    //final String user=intent.getStringExtra("ordername");
-                    //final Bundle bundle=new Bundle();
-                    //bundle.putString("data",user);
-                    //secondFragment.setArguments(bundle);
                     transaction.replace(R.id.fragment_container,secondFragment);
-                    //我们在替换时可以将替换的片段加入到回退栈中，这样我们按下返回
-                    //按钮时，系统会重新显示替换的片段，读者可以体验一下
-                    //transaction.addToBackStack(null);
-                    //提交事务
                     transaction.commit();
-
                     return true;
                 case R.id.navigation_skill:
 
                     return true;
                 case R.id.navigation_mine:
-
+                    Fragment fourFragment = new ForthFragment();
+                    transaction.replace(R.id.fragment_container,fourFragment);
+                    transaction.commit();
                     return true;
             }
             return false;

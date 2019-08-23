@@ -23,9 +23,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        login= (Button) findViewById(R.id.online);
-        forgetPassword = (TextView) findViewById(R.id.forgetPassword);
+        setContentView(R.layout.activity_login);
+        login= (Button)findViewById(R.id.online);
+        forgetPassword = (TextView)findViewById(R.id.forgetPassword);
         register = (TextView) findViewById(R.id.register);
 //        dbHelper = new DataBase(this,"UserStore.db",null,1);
         //登入
