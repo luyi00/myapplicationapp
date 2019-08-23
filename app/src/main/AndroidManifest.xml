@@ -37,6 +37,8 @@
         <activity
             android:name=".CollectActivity"
             android:label="收藏" />
+        <activity android:name=".MyMoney"
+            android:label="我的悬赏币" />
     </application>
 
 </manifest>

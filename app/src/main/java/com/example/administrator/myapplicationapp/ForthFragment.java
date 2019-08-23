@@ -59,7 +59,8 @@ public class ForthFragment extends Fragment {
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"设置",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getActivity(),SetPage.class);
+                startActivity(intent);
             }
         });
         btn_message.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +101,15 @@ public class ForthFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(),"更多缓存",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //收藏数据点击跳转至收藏界面
+        number01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),CollectActivity.class);
+                startActivity(intent);
             }
         });
         return v;

@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/number01"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_name"
             android:layout_marginLeft="60dp"
@@ -70,7 +70,7 @@
             android:layout_alignLeft="@+id/number01"/>
         <TextView
             android:id="@+id/number02"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_name"
             android:layout_centerHorizontal="true"
@@ -91,12 +91,12 @@
 
         <TextView
             android:id="@+id/number03"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_name"
             android:layout_alignParentRight="true"
             android:layout_marginTop="-2dp"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="20dp"
             android:text="3"
             android:textSize="30dp" />
 
