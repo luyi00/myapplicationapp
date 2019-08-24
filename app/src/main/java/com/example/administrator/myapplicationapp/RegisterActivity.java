@@ -57,6 +57,10 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        //将返回键显示出来
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         phoneNumber_reg = findViewById(R.id.phoneNumber_reg);
         password_reg = findViewById(R.id.password_reg);
         yanCode_reg = findViewById(R.id.yanCode_reg);

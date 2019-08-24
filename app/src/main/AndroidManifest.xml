@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgetActivity"></activity>
+        <activity android:name=".ChangePasswordPage"
+            android:label="重置密码"
+            android:parentActivityName=".ForgetActivity" ></activity>
+        <activity
+            android:name=".ForgetActivity"
+            android:label="重置密码"
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".MainActivity"
             android:label="易技能">
@@ -21,10 +27,12 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="登入" />
+            android:label="登入"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".RegisterActivity"
-            android:label="注册" />
+            android:label="注册"
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".AboutApp"
             android:label="关于App版本" />
@@ -37,7 +45,8 @@
         <activity
             android:name=".CollectActivity"
             android:label="收藏" />
-        <activity android:name=".MyMoney"
+        <activity
+            android:name=".MyMoney"
             android:label="我的悬赏币" />
         <activity android:name=".BufferPage"
             android:label="下载缓存"></activity>

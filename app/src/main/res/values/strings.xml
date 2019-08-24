@@ -15,4 +15,5 @@
     <string name="enter">登入</string>
     <string name="forget_direction">你可以通过绑定的手机进行重置密码</string>
     <string name="forget_commit">获取验证码</string>
+    <string name="changePassword">修改密码</string>
 </resources>
