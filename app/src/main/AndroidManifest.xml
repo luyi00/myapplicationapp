@@ -39,6 +39,8 @@
             android:label="收藏" />
         <activity android:name=".MyMoney"
             android:label="我的悬赏币" />
+        <activity android:name=".BufferPage"
+            android:label="下载缓存"></activity>
     </application>
 
 </manifest>

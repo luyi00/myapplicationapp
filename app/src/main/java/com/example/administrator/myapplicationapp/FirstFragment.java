@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class FirstFragment extends Fragment {
-    private Button bt1,bt2,bt3;
+    private Button bt1,bt2,bt3,bt4;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -17,6 +17,7 @@ public class FirstFragment extends Fragment {
         bt1=(Button)v.findViewById(R.id.bt1);
         bt2=(Button)v.findViewById(R.id.bt2);
         bt3=(Button)v.findViewById(R.id.bt3);
+        bt4=(Button)v.findViewById(R.id.bt4);
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,6 +36,13 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),CollectActivity.class);
+                startActivity(intent);
+            }
+        });
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),MyMoney.class);
                 startActivity(intent);
             }
         });

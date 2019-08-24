@@ -97,10 +97,12 @@ public class ForthFragment extends Fragment {
                 Toast.makeText(getActivity(),"更多记录",Toast.LENGTH_LONG).show();
             }
         });
+        //查看更多下载缓存
         buffer_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"更多缓存",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getActivity(),BufferPage.class);
+                startActivity(intent);
             }
         });
 
