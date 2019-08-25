@@ -25,20 +25,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         //将返回键显示出来
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        login= (Button)findViewById(R.id.online);
-        forgetPassword = (TextView)findViewById(R.id.forgetPassword);
-        register = (TextView) findViewById(R.id.register);
+        //控件获取
+        login= (Button)findViewById(R.id.login_login);
+        forgetPassword = (TextView)findViewById(R.id.forgetPassword_login);
+        register = (TextView) findViewById(R.id.register_login);
 //        dbHelper = new DataBase(this,"UserStore.db",null,1);
         //登入
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = ((EditText) findViewById(R.id.user)).getText().toString().trim();
-                password = ((EditText) findViewById(R.id.password)).getText().toString().trim();
+                user = ((EditText) findViewById(R.id.user_login)).getText().toString().trim();
+                password = ((EditText) findViewById(R.id.password_login)).getText().toString().trim();
                 if(user.trim().length()<11&&password.trim().length()<6){
                     Toast.makeText(LoginActivity.this,"请先输入正确的账户和密码",Toast.LENGTH_LONG).show();
                 }
