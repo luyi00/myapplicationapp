@@ -1,8 +1,20 @@
 package com.example.administrator.myapplicationapp;
 //第四个fragment
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +25,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
+
 public class ForthFragment extends Fragment {
     private ImageButton btn_setting,btn_message,btn_camera,record01,record02,record03,buffer01,buffer02,buffer03;
     private ImageView headimage,backgroundimage;
     private TextView number01,number01_under,number02,number02_under,number03,number03_under,records,buffer;
     private Button records_more,buffer_more;
+
+    public static final int TAKE_PHOTO=1;
+    private Uri imageUri;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_forth,null);
         backgroundimage=(ImageView)v.findViewById(R.id.background_image);
@@ -72,7 +91,26 @@ public class ForthFragment extends Fragment {
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"相机",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),"相机",Toast.LENGTH_LONG).show();
+                //创建File对象，用于存储拍照后的图片
+                File outputImage =new File(Environment.getExternalStorageDirectory(),"head_image.ipg");
+                try{
+                    if(outputImage.exists()){
+                        outputImage.delete();
+                    }
+                    outputImage.createNewFile();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+                if(Build.VERSION.SDK_INT>=24){
+                    imageUri = FileProvider.getUriForFile(getActivity(),"com.example.administrator.myapplicationapp.fileprovider",outputImage);
+                }else{
+                    imageUri=Uri.fromFile(outputImage);
+                }
+                //启动相机程序
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
+                startActivityForResult(intent,TAKE_PHOTO);
             }
         });
 
@@ -115,5 +153,17 @@ public class ForthFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case TAKE_PHOTO: {
+               //显示照片
+
+            }
+            break;
+            default:
+        }
     }
 }
