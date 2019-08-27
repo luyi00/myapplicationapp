@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
                     yanButton_reg.setText("重新发送"+clock);
                     break;
                 case UPDATE_TEXT:
-                    yanButton_reg.setText(R.string.sendPass);
+                    yanButton_reg.setText(R.string.sendPass_register);
                     yanButton_reg.setEnabled(true);
                     yanCode_reg_str="1111111";
                     break;

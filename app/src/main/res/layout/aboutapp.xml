@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
     <ImageView
-        android:id="@+id/imglogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_gravity="center"
+        android:background="@drawable/logo"
+        android:contentDescription="@string/logoContentDescription_about"/>
     <TextView
-        android:id="@+id/abouttitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="易技能"
-        android:layout_below="@+id/imglogo"
-        android:layout_centerHorizontal="true"
-        android:textSize="22dp"/>
+        android:text="@string/app_name"
+        android:layout_gravity="center"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1.0"
-        android:layout_below="@+id/abouttitle"
-        android:layout_centerHorizontal="true"
-        android:textSize="18dp"/>
-
-    <TextView
-        android:id="@+id/presentversion"
+        android:layout_gravity="center"
+        android:text="@string/version_about"
+        android:textSize="18sp"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="版本更新"
-        android:layout_below="@+id/version"
-        android:layout_centerHorizontal="true"
-        android:textSize="22dp"
-        android:layout_marginTop="50dp" />
-    <TextView
-        android:id="@+id/version2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="已是最新版本"
-        android:layout_below="@+id/version"
-        android:textSize="22dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="250dp"
-        />
-    <TextView
-        android:id="@+id/help"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/changeVersion_about"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/version2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/nowVersion_about"
+            android:textSize="20sp"
+            android:gravity="end"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="帮助"
         android:layout_below="@+id/presentversion"
         android:layout_centerHorizontal="true"
@@ -85,3 +86,40 @@
         android:layout_marginTop="-10dp"/>
 
 </RelativeLayout>
+=======
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="95"
+            android:text="@string/help_about"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/help_about"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_weight="5"
+            android:background="@drawable/right_arrow"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="95"
+            android:text="@string/feedback_about"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/feedback_about"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_weight="5"
+            android:background="@drawable/right_arrow"/>
+    </LinearLayout>
+</LinearLayout>
+>>>>>>> 1758ea1cf6d354079b50e43481ff83d26cda4fbf

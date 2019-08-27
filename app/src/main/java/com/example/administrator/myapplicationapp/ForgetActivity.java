@@ -38,7 +38,7 @@ public class ForgetActivity extends AppCompatActivity {
                     SendCode_for.setText("重新发送"+clock);
                     break;
                 case UPDATE_TEXT:
-                    SendCode_for.setText(R.string.sendPass);
+                    SendCode_for.setText(R.string.sendPass_forget);
                     SendCode_for.setEnabled(true);
                     yanCode_for_str="1111111";
                     break;
@@ -53,7 +53,7 @@ public class ForgetActivity extends AppCompatActivity {
 
         //将返回键显示出来
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        //获取控件
         PhoneText_for = findViewById(R.id.editText_forget);
         SendCode_for = findViewById(R.id.button_forget);
         YanCode_for = findViewById(R.id.yanCode_forget);
@@ -116,7 +116,7 @@ public class ForgetActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(YanCode_for.getText().toString().trim().length()==11){
+                if(YanCode_for.getText().toString().trim().length()==6){
                     ChangePassword_for.setEnabled(true);
                 }else{
                     ChangePassword_for.setEnabled(false);
