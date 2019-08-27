@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 //                    if(!find){
 //                        Toast.makeText(LoginActivity.this, "账号或密码输入错误", Toast.LENGTH_SHORT).show();
 //                    }
-                    Intent intent = new Intent(LoginActivity.this,UsersPage.class);
+                    Intent intent = new Intent(LoginActivity.this,ForthFragment.class);
                     startActivity(intent);
                 }
             }

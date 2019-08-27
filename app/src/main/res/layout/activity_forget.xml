@@ -58,7 +58,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:text="@string/changePassword"
+        android:text="changePassword"
         style="@style/textStyle_2"
         android:background="@drawable/phonenumber"
         android:enabled="false"/>

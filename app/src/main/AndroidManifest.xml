@@ -36,7 +36,6 @@
         <activity
             android:name=".AboutApp"
             android:label="关于App版本" />
-        <activity android:name=".UsersPage" />
         <activity android:name=".MyMessage" />
         <activity android:name=".IndexActivity" />
         <activity
@@ -50,6 +49,8 @@
             android:label="我的悬赏币" />
         <activity android:name=".BufferPage"
             android:label="下载缓存"></activity>
+        <activity android:name=".MessageCheck"
+            android:label="消息"></activity>
     </application>
 
 </manifest>

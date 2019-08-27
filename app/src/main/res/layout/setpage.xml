@@ -18,7 +18,7 @@
         android:textSize="20dp"
         android:layout_below="@+id/person"
         android:layout_marginTop="25dp"/>
-    <ImageButton
+    <com.example.administrator.myapplicationapp.CircleImageView
         android:id="@+id/head_img"
         android:layout_width="80dp"
         android:layout_height="80dp"

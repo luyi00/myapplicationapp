@@ -4,7 +4,7 @@
     android:layout_height="wrap_content" >
 
     <ImageView
-        android:id="@+id/itemimage01"
+        android:id="@+id/itemimage_head"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
@@ -12,34 +12,23 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp" />
 
-    <com.example.administrator.myapplicationapp.CircleImageView
-        android:id="@+id/itemimage02"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/itemtitle"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="4dp"
-        android:layout_toRightOf="@+id/itemimage01" />
     <TextView
-        android:id="@+id/itemtitle"
-        android:layout_width="match_parent"
+        android:id="@+id/message_itemtitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/itemimage01"
+        android:layout_alignTop="@+id/itemimage_head"
         android:layout_marginLeft="15dp"
-        android:layout_toRightOf="@+id/itemimage01"
+        android:layout_toRightOf="@+id/itemimage_head"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="TextView"
         android:textSize="18dp"/>
 
     <TextView
-        android:id="@+id/itemdetail"
+        android:id="@+id/message_itemdetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/itemtitle"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/itemimage02"
-        android:ellipsize="end"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
         android:lines="1"
         android:text="TextView"
         android:textAppearance="?android:attr/textAppearanceMedium"

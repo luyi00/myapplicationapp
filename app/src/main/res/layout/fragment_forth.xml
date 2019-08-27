@@ -35,7 +35,7 @@
             android:layout_marginTop="70dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"/>
-        <ImageView
+        <com.example.administrator.myapplicationapp.CircleImageView
             android:id="@+id/head_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -68,6 +68,15 @@
             android:text="收藏"
             android:textSize="18dp"
             android:layout_alignLeft="@+id/number01"/>
+        <com.example.administrator.myapplicationapp.CircleImageView
+            android:id="@+id/back_mid"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/user_name"
+            android:layout_centerHorizontal="true"
+            android:text="111"
+            android:textSize="35dp"
+            android:layout_marginTop="-15dp" />
         <TextView
             android:id="@+id/number02"
             android:layout_width="70dp"
@@ -76,17 +85,16 @@
             android:layout_centerHorizontal="true"
             android:text="111"
             android:textSize="35dp"
-            android:layout_marginTop="-15dp"/>
+            android:layout_marginTop="-5dp"/>
 
         <TextView
             android:id="@+id/number02uder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/number02"
+            android:layout_below="@+id/back_mid"
             android:layout_marginLeft="-6dp"
             android:text="信用积分"
             android:textSize="18dp"
-            android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"/>
 
         <TextView

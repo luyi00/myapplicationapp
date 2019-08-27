@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class ForthFragment extends Fragment {
     private ImageButton btn_setting,btn_message,btn_camera,record01,record02,record03,buffer01,buffer02,buffer03;
-    private ImageView headimage,backgroundimage;
+    private ImageView headimage,backgroundimage,backmid;
     private TextView number01,number01_under,number02,number02_under,number03,number03_under,records,buffer;
     private Button records_more,buffer_more;
     @Override
@@ -24,6 +24,8 @@ public class ForthFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_forth,null);
         backgroundimage=(ImageView)v.findViewById(R.id.background_image);
         backgroundimage.setAlpha(0.3f); //设置透明度，功能完善后可删除
+        backmid=(ImageView)v.findViewById(R.id.back_mid);//信用积分的背景
+        backmid.setImageResource(R.drawable.gray_bg);
         btn_setting=(ImageButton)v.findViewById(R.id.btn_setting);
         btn_message=(ImageButton)v.findViewById(R.id.btn_message);
         btn_camera=(ImageButton)v.findViewById(R.id.camera);//照相机按钮
@@ -66,7 +68,8 @@ public class ForthFragment extends Fragment {
         btn_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"查看消息",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getActivity(),MessageCheck.class);
+                startActivity(intent);
             }
         });
         btn_camera.setOnClickListener(new View.OnClickListener() {

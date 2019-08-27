@@ -61,7 +61,9 @@
         android:layout_height="50dp"
         android:layout_below="@+id/version2"
         android:layout_marginLeft="330dp"
-        android:background="@drawable/home"/>
+        android:text=">"
+        android:background="@android:color/transparent"
+        android:textSize="20dp"/>
     <TextView
         android:id="@+id/feedback"
         android:layout_width="match_parent"
@@ -77,7 +79,9 @@
         android:layout_height="50dp"
         android:layout_below="@+id/btn1"
         android:layout_marginLeft="330dp"
-        android:background="@drawable/home"
+        android:text=">"
+        android:background="@android:color/transparent"
+        android:textSize="20dp"
         android:layout_marginTop="-10dp"/>
 
 </RelativeLayout>

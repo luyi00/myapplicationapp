@@ -12,21 +12,6 @@ public class IndexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bt1 = (Button) findViewById(R.id.bt1);  //测试用，跳转到登入界面
-        bt2 = (Button) findViewById(R.id.bt2);   //测试用，跳转到关于app界面
-        bt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(IndexActivity.this, AboutApp.class);
-                startActivity(intent);
-            }
-        });
+        
     }
 }

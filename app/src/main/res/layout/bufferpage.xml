@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <ListView
         android:id="@+id/buffer_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
+    <TextView
+        android:id="@+id/choose_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_menu"
+        android:text="已缓存 **M， 剩余 **G"
+        android:gravity="center"
+        android:background="#ccc"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+        <Button
+            android:id="@+id/btn_all"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent"
+            android:text="全选"
+            android:textColor="@color/colorBlack"
+            android:background="@android:color/white"
+            android:textSize="18dp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000"></View>
+        <Button
+            android:id="@+id/btn_del"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent"
+            android:text="删除"
+            android:textColor="@color/colorBlack"
+            android:background="@android:color/white"
+            android:textSize="18dp"/>
+    </LinearLayout>
 </RelativeLayout>

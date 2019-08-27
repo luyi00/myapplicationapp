@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ import org.w3c.dom.Text;
 public class SetPage extends AppCompatActivity {
     private TextView tvname,tvsex,tvbirth,tvintro,person,head,tvaboutapp,tvexit;
     private EditText etname,etsex,etbirth,etintro;
-    private ImageButton head_img;
+    private ImageView head_img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,7 @@ public class SetPage extends AppCompatActivity {
         etsex=(EditText)findViewById(R.id.et_sex);
         etbirth=(EditText)findViewById(R.id.et_birth);
         etintro=(EditText)findViewById(R.id.et_intro);
-        head_img=(ImageButton)findViewById(R.id.head_img);
+        head_img=(ImageView) findViewById(R.id.head_img);
         head_img.setImageResource(R.drawable.icon_people_fill);
         //跳转到关于app界面
         tvaboutapp.setOnClickListener(new View.OnClickListener() {
