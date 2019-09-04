@@ -13,14 +13,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+import com.example.administrator.myapplicationapp.db.DataBase;
+
+public class LoginActivity extends BaseActivity {
     private Button login;
     private String user;
     private String password;
     private TextView forgetPassword;
     private TextView register;
-//    private DataBase dbHelper;        //数据库
+    private DataBase dbHelper;        //数据库
     private boolean find = false;
+
+    public static final int RESULT_OK=1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         login= (Button)findViewById(R.id.login_login);
         forgetPassword = (TextView)findViewById(R.id.forgetPassword_login);
         register = (TextView) findViewById(R.id.register_login);
-//        dbHelper = new DataBase(this,"UserStore.db",null,1);
+        dbHelper = new DataBase(this,"UserStore.db",null,1);
         //登入
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,29 +47,27 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"请先输入正确的账户和密码",Toast.LENGTH_LONG).show();
                 }
                 else{
-                    //调用数据库比对账户和密码
-//                    SQLiteDatabase db = dbHelper.getReadableDatabase();
-//                    Cursor cursor = db.query("user",null,null,null,null,null,null);
-//                    if(cursor.moveToFirst()){
-//                        do{
-//                            String user_phone = cursor.getString(cursor.getColumnIndex("user_phone"));
-//                            String user_password = cursor.getString(cursor.getColumnIndex("user_password"));
-//                            if(user.equals(user_phone)&&password.equals(user_password)){
-//                                cursor.close();
-//                                //跳转到主页
-//                                Intent intent = new Intent(LoginActivity.this,UsersPage.class);
-//                                intent.putExtra("user_phone",user);
-//                                startActivity(intent);
-//                                find=true;
-//                            }
-//                        }while(cursor.moveToNext());
-//                        cursor.close();
-//                    }
-//                    if(!find){
-//                        Toast.makeText(LoginActivity.this, "账号或密码输入错误", Toast.LENGTH_SHORT).show();
-//                    }
-                    Intent intent = new Intent(LoginActivity.this,ForthFragment.class);
-                    startActivity(intent);
+//                    调用数据库比对账户和密码
+                    SQLiteDatabase db = dbHelper.getReadableDatabase();
+                    Cursor cursor = db.query("user",null,null,null,null,null,null);
+                    if(cursor.moveToFirst()){
+                        do{
+                            String user_phone = cursor.getString(cursor.getColumnIndex("user_phone"));
+                            String user_password = cursor.getString(cursor.getColumnIndex("user_password"));
+                            if(user.equals(user_phone)&&password.equals(user_password)){
+                                cursor.close();
+                                //返回上一个activity
+                                Intent intent = new Intent();
+                                intent.putExtra("user_phone",user);
+                                setResult(RESULT_OK,intent);
+                                finish();
+                            }
+                        }while(cursor.moveToNext());
+                        cursor.close();
+                    }
+                    if(!find){
+                        Toast.makeText(LoginActivity.this, "账号或密码输入错误", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

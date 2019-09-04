@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 //首页fragment中的内容
-public class IndexActivity extends AppCompatActivity {
+public class IndexActivity extends BaseActivity {
     private Button bt1,bt2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

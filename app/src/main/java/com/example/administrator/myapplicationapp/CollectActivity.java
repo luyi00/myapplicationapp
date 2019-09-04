@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
-public class CollectActivity extends AppCompatActivity {
+public class CollectActivity extends BaseActivity {
     private TabLayout tableLayout;
     private ViewPager viewPager;
     private List<Fragment> fragmentList;

@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class ChangePasswordPage extends AppCompatActivity {
+public class ChangePasswordPage extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

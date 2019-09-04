@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class ForgetActivity extends AppCompatActivity {
+public class ForgetActivity extends BaseActivity {
     private EditText PhoneText_for ;
     private Button SendCode_for;
     private EditText YanCode_for;

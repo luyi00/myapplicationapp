@@ -19,7 +19,7 @@ import android.widget.Toolbar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AboutApp extends AppCompatActivity {
+public class AboutApp extends BaseActivity {
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {

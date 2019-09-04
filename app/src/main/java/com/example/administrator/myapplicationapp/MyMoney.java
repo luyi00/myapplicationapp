@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MyMoney extends AppCompatActivity {
+public class MyMoney extends BaseActivity {
     private ImageView moneyview;
     private TextView moneynum,moneysign;
     RelativeLayout r1,r2;
