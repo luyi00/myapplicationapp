@@ -75,4 +75,7 @@ public class SetPage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    private void saveData(){
+        //存储数据
+    }
 }

@@ -49,6 +49,9 @@ public class ForthFragment extends Fragment {
     public static final int CHOOSE_PHOTO=2;
     private Uri imageUri;
 
+    //用户信息
+    private String userAccount=null;
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,13 +90,21 @@ public class ForthFragment extends Fragment {
         buffer02.setImageResource(R.drawable.video_ex);
         buffer03=(ImageButton)v.findViewById(R.id.buffer03);
         buffer03.setImageResource(R.drawable.video_ex);
+        //获取用户信息
+
 
         //点击事件
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),SetPage.class);
-                startActivity(intent);
+                //先判断是否登陆
+                if(userAccount==null){
+                    Intent intent = new Intent(getActivity(),LoginActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent=new Intent(getActivity(),SetPage.class);
+                    startActivity(intent);
+                }
             }
         });
         btn_message.setOnClickListener(new View.OnClickListener() {

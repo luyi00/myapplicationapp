@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
 
+MobSDK {
+    appKey "2c3763b2b1860"  //替换为mob官方申请的appkey
+    appSecret "33fcfa399c0e68baf9c796d5b7c4c812"    //替换为mob官方申请的appkey对应的appSecret
+    SMSSDK {}
+}
 android {
     compileSdkVersion 27
     defaultConfig {

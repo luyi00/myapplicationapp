@@ -59,11 +59,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-<<<<<<< HEAD
-        android:text="changePassword"
-=======
         android:text="@string/changePassword_forget"
->>>>>>> 1758ea1cf6d354079b50e43481ff83d26cda4fbf
         style="@style/textStyle_2"
         android:background="@drawable/phonenumber"
         android:enabled="false"/>

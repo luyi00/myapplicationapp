@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
     android:layout_margin="5dp">
     <ImageView
@@ -50,43 +49,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:text="帮助"
-        android:layout_below="@+id/presentversion"
-        android:layout_centerHorizontal="true"
-        android:textSize="22dp"
-        android:layout_marginTop="10dp" />
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/version2"
-        android:layout_marginLeft="330dp"
-        android:text=">"
-        android:background="@android:color/transparent"
-        android:textSize="20dp"/>
-    <TextView
-        android:id="@+id/feedback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="反馈"
-        android:layout_below="@+id/help"
-        android:layout_centerHorizontal="true"
-        android:textSize="22dp"
-        android:layout_marginTop="10dp" />
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/btn1"
-        android:layout_marginLeft="330dp"
-        android:text=">"
-        android:background="@android:color/transparent"
-        android:textSize="20dp"
-        android:layout_marginTop="-10dp"/>
-
-</RelativeLayout>
-=======
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         >
@@ -122,4 +84,4 @@
             android:background="@drawable/right_arrow"/>
     </LinearLayout>
 </LinearLayout>
->>>>>>> 1758ea1cf6d354079b50e43481ff83d26cda4fbf
+

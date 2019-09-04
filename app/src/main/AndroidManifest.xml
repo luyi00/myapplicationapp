@@ -50,10 +50,8 @@
             android:label="我的悬赏币" />
         <activity android:name=".BufferPage"
             android:label="下载缓存"></activity>
-<<<<<<< HEAD
         <activity android:name=".MessageCheck"
             android:label="消息"></activity>
-=======
         <provider
             android:authorities="com.example.administrator.myapplicationapp.fileprovider"
             android:name="android.support.v4.content.FileProvider"
@@ -64,7 +62,6 @@
                 android:resource="@xml/file_paths"/>
         </provider>
 
->>>>>>> 1758ea1cf6d354079b50e43481ff83d26cda4fbf
     </application>
 
 </manifest>
