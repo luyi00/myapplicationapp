@@ -36,6 +36,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static android.content.ContentValues.TAG;
 
@@ -44,14 +46,17 @@ public class ForthFragment extends Fragment {
     private ImageView headimage,backgroundimage,backmid;
     private TextView number01,number01_under,number02,number02_under,number03,number03_under,records,buffer;
     private Button records_more,buffer_more;
-
+    //相册与相机
     public static final int TAKE_PHOTO=1;
     public static final int CHOOSE_PHOTO=2;
+    //回调代码
+    private static final int OPEN_ALBUM=1;
+    private static final int OPEN_CANMER=2;
+    //图片地址
     private Uri imageUri;
 
     //用户信息
     private String userAccount=null;
-
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -119,7 +124,7 @@ public class ForthFragment extends Fragment {
             public void onClick(View view) {
 //                Toast.makeText(getActivity(),"相机",Toast.LENGTH_LONG).show();
                 //启动相机和相册程序
-                openPictuer();
+                openPicture();
             }
         });
 
@@ -163,7 +168,8 @@ public class ForthFragment extends Fragment {
         });
         return v;
     }
-    private void openPictuer() {
+    //打开相机或相册
+    private void openPicture() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("请选择");
         builder.setItems(new String[]{"相机", "相册"}, new DialogInterface.OnClickListener() {
@@ -172,29 +178,22 @@ public class ForthFragment extends Fragment {
                 switch (which) {
                     case 0:
                         //相机
-                        //创建File对象，用于存储拍照后的图片
-                        File outputImage =new File(Environment.getExternalStorageDirectory(),"head_image.ipg");
-                        try{
-                            if(outputImage.exists()){
-                                outputImage.delete();
+                        if (Build.VERSION.SDK_INT >= 23) {
+                            int checkCallPhonePermission = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA);
+                            if(checkCallPhonePermission != PackageManager.PERMISSION_GRANTED){
+                                ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CAMERA},OPEN_CANMER);
+                                return;
+                            }else{
+                                showCamera();
                             }
-                            outputImage.createNewFile();
-                        }catch (IOException e){
-                            e.printStackTrace();
+                        } else {
+                            showCamera();
                         }
-                        if(Build.VERSION.SDK_INT>=24){
-                            imageUri = FileProvider.getUriForFile(getActivity(),"com.example.administrator.myapplicationapp.fileprovider",outputImage);
-                        }else{
-                            imageUri=Uri.fromFile(outputImage);
-                        }
-                        Intent intent_camera = new Intent("android.media.action.IMAGE_CAPTURE");
-                        intent_camera.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
-                        startActivityForResult(intent_camera, TAKE_PHOTO);
                         break;
                     case 1:
                         //相册
                         if(ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WRITE_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED){
-                            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+                            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},OPEN_ALBUM);
                         }else{
                             openAlbum();
                         }
@@ -205,7 +204,34 @@ public class ForthFragment extends Fragment {
         });
         builder.create().show();
     }
-
+    //相机
+    public void showCamera(){
+        //创建File对象，用于存储拍照后的图片
+        File dir = new File(Environment.getExternalStorageDirectory(), "image");//在sd下创建文件夹myimage；Environment.getExternalStorageDirectory()得到SD卡路径文件
+        if (!dir.exists()) {    //exists()判断文件是否存在，不存在则创建文件
+            dir.mkdirs();
+        }
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");   //设置日期格式在android中，创建文件时，文件名中不能包含“：”冒号
+        String filename = df.format(new Date());
+        File outputImage =new File(dir, filename + ".jpg");
+        try{
+            if(outputImage.exists()){
+                outputImage.delete();
+            }
+            outputImage.createNewFile();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        if(Build.VERSION.SDK_INT>=24){
+            imageUri = FileProvider.getUriForFile(getActivity(),"com.example.administrator.myapplicationapp.fileprovider",outputImage);
+        }else{
+            imageUri=Uri.fromFile(outputImage);
+        }
+        Intent intent_camera = new Intent("android.media.action.IMAGE_CAPTURE");
+        intent_camera.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
+        startActivityForResult(intent_camera, TAKE_PHOTO);
+    }
+    //相册
     public void openAlbum(){
         Intent intent_album = new Intent(Intent.ACTION_PICK);
         intent_album.setType("image/*");
@@ -215,11 +241,18 @@ public class ForthFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
-            case 1:
+            case OPEN_ALBUM:
                 if(grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
                     openAlbum();
                 }else{
                     Toast.makeText(getContext(), "权限未开启", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case OPEN_CANMER:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    showCamera();
+                } else {
+                    Toast.makeText(getContext(), "相机权限禁用了。请务必开启相机权", Toast.LENGTH_SHORT).show();
                 }
                 break;
             default:

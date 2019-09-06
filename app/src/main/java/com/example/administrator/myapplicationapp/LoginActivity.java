@@ -56,6 +56,7 @@ public class LoginActivity extends BaseActivity {
                             String user_password = cursor.getString(cursor.getColumnIndex("user_password"));
                             if(user.equals(user_phone)&&password.equals(user_password)){
                                 cursor.close();
+                                find = true;
                                 //返回上一个activity
                                 Intent intent = new Intent();
                                 intent.putExtra("user_phone",user);

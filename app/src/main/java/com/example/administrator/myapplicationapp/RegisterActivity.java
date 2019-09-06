@@ -40,10 +40,6 @@ public class RegisterActivity extends BaseActivity {
     private String password_reg_c;
     private String yanCode_reg_str;
     private boolean exits = false;
-    private static final int UPDATE = 1;
-    private static final int UPDATE_TEXT = 2;
-    private static int clock;
-    private Random random;
     //短信验证
     EventHandler eventHandler;
 
@@ -161,9 +157,7 @@ public class RegisterActivity extends BaseActivity {
                 password_reg_c = password_reg.getText().toString().trim();
                 //发送验证码
                 SMSSDK.getVerificationCode("86", phoneNumber_reg_c);
-                Toast.makeText(RegisterActivity.this, "验证码已发送", Toast.LENGTH_SHORT).show();
                 //如果发送成功
-                clock = 60;
                 yanButton_reg.setEnabled(false);
                 //开启线程去更新button的text
                 new Thread() {
@@ -208,9 +202,9 @@ public class RegisterActivity extends BaseActivity {
         nextStep_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //先判断验证码是否正确
+                //先判断验证码是否有效
                  yanCode_reg_str = yanCode_reg.getText().toString();
-                if(null != yanCode_reg_str && yanCode_reg_str.length() == 4){
+                if(yanCode_reg_str.length() == 4){
                     SQLiteDatabase db = dbHelper.getReadableDatabase();
                     //判断账号是否存在
                     Cursor cursor = db.query("user",null,null,null,null,null,null);
@@ -243,6 +237,7 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //跳转至使用条款和隐私政策界面
+                Toast.makeText(RegisterActivity.this, "跳转至使用条款和隐私政策界面", Toast.LENGTH_SHORT).show();
             }
         });
     }

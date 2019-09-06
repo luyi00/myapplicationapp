@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:hint="@string/verCode_forget"
             android:inputType="number"
-            android:maxLength="6"
+            android:maxLength="4"
             tools:ignore="Autofill"/>
         <Button
             android:id="@+id/button_forget"

@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:hint="@string/verCode_register"
             android:inputType="number"
-            android:maxLength="6"
+            android:maxLength="4"
             tools:ignore="Autofill"/>
 
         <Button
