@@ -15,26 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FirstFragment extends Fragment {
+    private Button button;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-<<<<<<< HEAD
         View v = inflater.inflate(R.layout.fragment_first, null);
-        return v;
-    }
-=======
-        View v = inflater.inflate(R.layout.fragment_first,null);
         Button button = v.findViewById(R.id.login_first);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }
         });
         return v;
     }
-
-
->>>>>>> 8788e5baeb1ba29d2a86619aafded6bf3dd56d42
 }

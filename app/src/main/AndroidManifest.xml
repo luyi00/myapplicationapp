@@ -51,7 +51,6 @@
         <activity android:name=".BufferPage"
             android:label="下载缓存"></activity>
         <activity android:name=".MessageCheck"
-<<<<<<< HEAD
             android:label="消息与通知"></activity>
         <activity android:name=".RecordPage"
             android:label="浏览记录" />
@@ -61,8 +60,6 @@
             android:label="反馈"/>
         <activity android:name=".Helppage"
             android:label="帮助"/>
-=======
-            android:label="消息"></activity>
         <provider
             android:authorities="com.example.administrator.myapplicationapp.fileprovider"
             android:name="android.support.v4.content.FileProvider"
@@ -73,7 +70,6 @@
                 android:resource="@xml/file_paths"/>
         </provider>
 
->>>>>>> 8788e5baeb1ba29d2a86619aafded6bf3dd56d42
     </application>
 
 </manifest>
