@@ -2,28 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_margin="30dp">
     <EditText
         android:id="@+id/phoneNumber_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:hint="@string/phoneNumber"
+        android:hint="@string/phoneNumber_register"
         android:inputType="phone"
         android:maxLength="11"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="200dp"
+        tools:ignore="Autofill"/>
 
     <EditText
         android:id="@+id/password_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:hint="@string/password"
+        android:hint="@string/password_register"
         android:inputType="textPassword"
         android:maxLength="16"
+        tools:ignore="Autofill"
         />
 
     <LinearLayout
@@ -36,19 +36,18 @@
             android:id="@+id/yanCode_reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:layout_weight="1"
-            android:hint="@string/verCode"
+            android:hint="@string/verCode_register"
             android:inputType="number"
-            android:maxLength="6"/>
+            android:maxLength="4"
+            tools:ignore="Autofill"/>
 
         <Button
             android:id="@+id/yanButton_reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:layout_weight="1"
-            android:text="@string/sendPass"
+            android:text="@string/sendPass_register"
             style="@style/textStyle_2"
             android:background="@drawable/phonenumber"
             android:enabled="false"/>
@@ -58,10 +57,8 @@
         android:id="@+id/nextStep_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:text="@string/register"
+        android:text="@string/register_register"
         style="@style/textStyle_2"
         android:background="@drawable/phonenumber"
         android:enabled="false"/>
@@ -70,8 +67,7 @@
         android:id="@+id/agreement_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:text="@string/using"
+        android:text="@string/using_register"
         android:textColor="@color/colorHtml"/>
 </LinearLayout>

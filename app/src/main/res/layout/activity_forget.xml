@@ -9,13 +9,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/forget_direction"
+        android:text="@string/forgetDirection_forget"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         style="@style/textStyle_1"
         android:layout_marginTop="200dp"/>
     <EditText
-        tools:ignore="Autofill"
         android:id="@+id/editText_forget"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -23,9 +22,10 @@
         android:inputType="phone"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:hint="@string/phoneNumber"
+        android:hint="@string/phoneNumber_forget"
         android:drawablePadding="20dp"
         android:maxLength="11"
+        tools:ignore="Autofill"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,9 +38,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/verCode"
+            android:hint="@string/verCode_forget"
             android:inputType="number"
-            android:maxLength="6"/>
+            android:maxLength="4"
+            tools:ignore="Autofill"/>
         <Button
             android:id="@+id/button_forget"
             android:layout_width="wrap_content"
@@ -48,7 +49,7 @@
             android:layout_weight="1"
             android:background="@drawable/phonenumber"
             android:enabled="false"
-            android:text="@string/forget_commit"
+            android:text="@string/forgetCommit_forget"
             style="@style/textStyle_2"/>
     </LinearLayout>
     <Button
@@ -58,7 +59,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:text="changePassword"
+        android:text="@string/changePassword_forget"
         style="@style/textStyle_2"
         android:background="@drawable/phonenumber"
         android:enabled="false"/>

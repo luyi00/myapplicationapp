@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageCheck extends AppCompatActivity {
+public class MessageCheck extends BaseActivity {
     private TabLayout mtableLayout;
     private ViewPager mviewPager;
     private List<Fragment> mfragmentList;

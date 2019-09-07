@@ -19,30 +19,19 @@ import android.widget.Toolbar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AboutApp extends AppCompatActivity {
-    private TextView title,version,preversion,version2,help,feedback;
-    private EditText titleEt,contentEt;
-    private ImageView imglogo;
-    private Button bt1,bt2;
+public class AboutApp extends BaseActivity {
+
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.aboutapp);
-            ActionBar actionBar = getSupportActionBar();
             //添加返回按钮
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            imglogo=(ImageView)findViewById(R.id.imglogo);
-            imglogo.setImageResource(R.drawable.logo);   //易技能logo
-            title=(TextView)findViewById(R.id.abouttitle);
-            version=(TextView)findViewById(R.id.version);
-            preversion=(TextView)findViewById(R.id.presentversion);
-            version2=(TextView)findViewById(R.id.version2);
-            help=(TextView)findViewById(R.id.help);
-            feedback=(TextView)findViewById(R.id.feedback);
-            bt1=(Button)findViewById(R.id.btn1);
-            bt2=(Button)findViewById(R.id.btn2);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            //控件获取
+            Button helpAbout = (Button) findViewById(R.id.help_about);
+            Button feedbackAbout = (Button) findViewById(R.id.feedback_about);
             //帮助界面跳转
-            bt1.setOnClickListener(new View.OnClickListener() {
+            helpAbout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                         Intent intent2=new Intent(AboutApp.this,Helppage.class);
@@ -50,7 +39,7 @@ public class AboutApp extends AppCompatActivity {
                 }
             });
             //反馈界面跳转
-            bt2.setOnClickListener(new View.OnClickListener() {
+            feedbackAbout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                         Intent intent2=new Intent(AboutApp.this,Feedbackpage.class);

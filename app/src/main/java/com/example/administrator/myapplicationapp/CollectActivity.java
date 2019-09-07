@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
-public class CollectActivity extends AppCompatActivity {
+public class CollectActivity extends BaseActivity {
     private TabLayout tableLayout;
     private ViewPager viewPager;
     private List<Fragment> fragmentList;
@@ -32,7 +32,7 @@ public class CollectActivity extends AppCompatActivity {
         fragmentList.add(new collectfragmentAll());
         fragmentList.add(new SecondFragment());
         fragmentList.add(new ThirdFragment());
-        fragmentList.add(new ThirdFragment());
+        fragmentList.add(new ForthFragment());
         FragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, new String[]{"全部", "达人动态", "科研成果","特色活动"});
         viewPager.setAdapter(adapter);
 

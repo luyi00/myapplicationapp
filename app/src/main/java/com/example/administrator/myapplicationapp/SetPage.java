@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class SetPage extends AppCompatActivity {
+public class SetPage extends BaseActivity {
     private TextView tvname,tvsex,tvbirth,tvintro,person,head,tvaboutapp,tvexit;
     private EditText etname,etsex,etbirth,etintro;
     private ImageView head_img;
@@ -74,5 +74,8 @@ public class SetPage extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void saveData(){
+        //存储数据
     }
 }

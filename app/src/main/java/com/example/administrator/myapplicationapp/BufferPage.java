@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class BufferPage extends AppCompatActivity {
+public class BufferPage extends BaseActivity {
     private ListView bufferlist;
     private TextView editTv,choosemessage;
     private CheckBox check;
