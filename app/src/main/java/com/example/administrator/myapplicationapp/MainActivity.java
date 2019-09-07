@@ -15,8 +15,7 @@ import android.widget.TextView;
 
 public class MainActivity extends BaseActivity {
 
-    private TextView mTextMessage;
-
+    //碎片管理
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -40,7 +39,9 @@ public class MainActivity extends BaseActivity {
                     transaction.commit();
                     return true;
                 case R.id.navigation_skill:
-
+                    Fragment thirdFragment = new ThirdFragment();
+                    transaction.replace(R.id.fragment_container,thirdFragment);
+                    transaction.commit();
                     return true;
                 case R.id.navigation_mine:
                     Fragment fourFragment = new ForthFragment();
@@ -51,17 +52,18 @@ public class MainActivity extends BaseActivity {
             return false;
         }
     };
-    private Button bt1,bt2;
+    //初始化界面
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //加载碎片
         init();
-
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
+    //初始化碎片
     private void init(){
         //取得Fragment管理器
         Fragment firstFragment = new FirstFragment();

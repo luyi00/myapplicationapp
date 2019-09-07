@@ -283,55 +283,18 @@ public class ForthFragment extends Fragment {
             }
             break;
             case CHOOSE_PHOTO:{
-                if(Build.VERSION.SDK_INT>=19){
-                    //4.4及其以上系统使用该方法处理图片
-                    handleImageOnKitKat(data);
-                }else{
-                    handleImageBeforeKitKat(data);
-                }
+                Uri selectedImage = data.getData();
+                String[] filePathColumns = {MediaStore.Images.Media.DATA};
+                Cursor c = getActivity().getContentResolver().query(selectedImage, filePathColumns, null, null, null);
+                c.moveToFirst();
+                int columnIndex = c.getColumnIndex(filePathColumns[0]);
+                String imagePath = c.getString(columnIndex);
+                displayImage(imagePath);
+                c.close();
             }
             break;
             default:
         }
-    }
-    @TargetApi(19)
-    private void handleImageOnKitKat(Intent data){
-        String imagePath = null;
-        Uri uri = data.getData();
-        if(DocumentsContract.isDocumentUri(getContext(),uri)){
-            //如果是document类型的uri，则通过document id处理
-            String docId = DocumentsContract.getDocumentId(uri);
-            if("com.android.providers.media.documents".equals(uri.getAuthority())){
-                String id = docId.split(":")[1];
-                String selection = MediaStore.Images.Media._ID+"="+id;
-                imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,selection);
-            }else if("com.android.providers.downloads.documents".equals(uri.getAuthority())){
-                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"),Long.valueOf(docId));
-                imagePath = getImagePath(contentUri,null);
-            }else if("content".equalsIgnoreCase(uri.getScheme())){
-                imagePath = getImagePath(uri,null);
-            }else if("file".equalsIgnoreCase(uri.getScheme())){
-                imagePath = uri.getPath();
-            }
-            displayImage(imagePath);
-        }
-    }
-    private void handleImageBeforeKitKat(Intent data){
-        Uri uri = data.getData();
-        String imagePath = getImagePath(uri,null);
-        displayImage(imagePath);
-    }
-    private String getImagePath(Uri uri,String selection){
-        String path = null;
-        //通过uri和selection获取真实的图片路径
-        Cursor cursor = getContext().getContentResolver().query(uri,null,selection,null,null);
-        if(cursor!=null){
-            if(cursor.moveToFirst()){
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-            }
-            cursor.close();
-        }
-        return path;
     }
     private void displayImage(String imagePath){
         if(imagePath!=null){

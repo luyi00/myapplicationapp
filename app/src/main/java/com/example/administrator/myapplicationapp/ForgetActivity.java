@@ -96,7 +96,8 @@ public class ForgetActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
-
+        //数据库
+        dbHelper = new DataBase(this,"UserStore.db",null,1);
         //将返回键显示出来
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //获取控件
@@ -151,6 +152,7 @@ public class ForgetActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //先判断账户是否存在
+                PhoneText_for_str=PhoneText_for.getText().toString().trim();
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 Cursor cursor = db.query("user",null,null,null,null,null,null);
                 if(cursor.moveToFirst()){
@@ -167,7 +169,6 @@ public class ForgetActivity extends BaseActivity {
                    Toast.makeText(ForgetActivity.this, "账户未存在，请先注册", Toast.LENGTH_SHORT).show();
                    finish();
                }else{
-                   PhoneText_for_str=PhoneText_for.getText().toString().trim();
                    //发送验证码
                    SMSSDK.getVerificationCode("86", PhoneText_for_str);
                    //如果发送成功
