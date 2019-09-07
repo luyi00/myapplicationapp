@@ -32,7 +32,7 @@ public class MessageCheck extends AppCompatActivity {
         //收藏界面的四个fragment
         mfragmentList = new ArrayList<Fragment>();
         mfragmentList.add(new MessageFragment());
-        mfragmentList.add(new SecondFragment());
+        mfragmentList.add(new NoticeFragment());
         FragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager(), mfragmentList, new String[]{"消息", "通知"});
         mviewPager.setAdapter(adapter);
 

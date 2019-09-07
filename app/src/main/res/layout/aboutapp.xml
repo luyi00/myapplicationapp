@@ -26,7 +26,12 @@
         android:layout_below="@+id/abouttitle"
         android:layout_centerHorizontal="true"
         android:textSize="18dp"/>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/version"
+        android:layout_marginTop="45dp"
+        android:background="#ccc"></View>
     <TextView
         android:id="@+id/presentversion"
         android:layout_width="match_parent"
@@ -44,8 +49,13 @@
         android:layout_below="@+id/version"
         android:textSize="22dp"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="250dp"
-        />
+        android:layout_marginLeft="250dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/presentversion"
+        android:layout_marginTop="5dp"
+        android:background="#ccc"></View>
     <TextView
         android:id="@+id/help"
         android:layout_width="match_parent"
@@ -60,10 +70,16 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@+id/version2"
-        android:layout_marginLeft="330dp"
+        android:layout_alignParentRight="true"
         android:text=">"
         android:background="@android:color/transparent"
         android:textSize="20dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/help"
+        android:layout_marginTop="5dp"
+        android:background="#ccc"></View>
     <TextView
         android:id="@+id/feedback"
         android:layout_width="match_parent"
@@ -78,10 +94,16 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@+id/btn1"
-        android:layout_marginLeft="330dp"
+        android:layout_alignParentRight="true"
         android:text=">"
         android:background="@android:color/transparent"
         android:textSize="20dp"
         android:layout_marginTop="-10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/feedback"
+        android:layout_marginTop="5dp"
+        android:background="#ccc"></View>
 
 </RelativeLayout>

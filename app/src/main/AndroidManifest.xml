@@ -37,7 +37,6 @@
             android:name=".AboutApp"
             android:label="关于App版本" />
         <activity android:name=".MyMessage" />
-        <activity android:name=".IndexActivity" />
         <activity
             android:name=".SetPage"
             android:label="设置" />
@@ -50,7 +49,15 @@
         <activity android:name=".BufferPage"
             android:label="下载缓存"></activity>
         <activity android:name=".MessageCheck"
-            android:label="消息"></activity>
+            android:label="消息与通知"></activity>
+        <activity android:name=".RecordPage"
+            android:label="浏览记录" />
+        <activity android:name=".TransactionRecord"
+            android:label="交易记录"/>
+        <activity android:name=".Feedbackpage"
+            android:label="反馈"/>
+        <activity android:name=".Helppage"
+            android:label="帮助"/>
     </application>
 
 </manifest>

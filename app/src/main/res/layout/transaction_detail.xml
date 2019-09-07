@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content" >
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/transactionimage_head"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/transaction_itemtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/transactionimage_head"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/transactionimage_head"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TextView"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transaction_itemtitle"
+        android:layout_alignLeft="@+id/transaction_itemtitle"
+        android:textSize="15dp"
+        android:textColor="#ccc"
+        android:layout_marginTop="5dp"
+        android:singleLine="true" />
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:lines="1"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="18dp" />
+
+</RelativeLayout>

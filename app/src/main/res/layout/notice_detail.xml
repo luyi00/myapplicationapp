@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content" >
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/noticeitemimage_head"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/notice_itemtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/noticeitemimage_head"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/noticeitemimage_head"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TextView"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notice_itemtitle"
+        android:layout_alignLeft="@+id/notice_itemtitle"
+        android:textSize="15dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:singleLine="true" />
+    <TextView
+        android:id="@+id/notice_itemdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:lines="1"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="15dp" />
+
+</RelativeLayout>

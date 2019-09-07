@@ -97,7 +97,8 @@ public class ForthFragment extends Fragment {
         records_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"更多记录",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getActivity(),RecordPage.class);
+                startActivity(intent);
             }
         });
         //查看更多下载缓存
@@ -114,6 +115,15 @@ public class ForthFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),CollectActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //交易记录点击跳转界面
+        number03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),TransactionRecord.class);
                 startActivity(intent);
             }
         });

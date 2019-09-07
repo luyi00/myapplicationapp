@@ -1,0 +1,103 @@
+[33mcommit 9d7b4548d40603845c32a55b38e81ac57375285b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 4190af8 1758ea1
+Author: luyi00 <1483574999@qq.com>
+Date:   Wed Aug 28 00:13:41 2019 +0800
+
+    有设计图界面基本完成
+
+[33mcommit 4190af8c6d9d3ac9ee89fe9c53aa55c803213cd5[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Wed Aug 28 00:02:44 2019 +0800
+
+    有设计图界面基本完完成
+
+[33mcommit 1758ea1cf6d354079b50e43481ff83d26cda4fbf[m
+Author: Voctor <1076376440@qq.com>
+Date:   Tue Aug 27 19:02:19 2019 +0800
+
+    添加相册功能
+
+[33mcommit 6682e16007e0bd89dcfb2f3f36dac7106a7b3383[m
+Author: Voctor <1076376440@qq.com>
+Date:   Mon Aug 26 23:08:47 2019 +0800
+
+    添加照相机功能
+
+[33mcommit 0cc7e14c7d5666690926ea750dcec05b3f233e37[m
+Author: Voctor <1076376440@qq.com>
+Date:   Sun Aug 25 10:49:02 2019 +0800
+
+    去除警示，修改关于界面的布局
+
+[33mcommit f94025d36eb3b729b2bd039c92ade1614dca6907[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Sun Aug 25 00:14:53 2019 +0800
+
+    添加悬赏币和缓存界面
+
+[33mcommit 78f5e6cfb8fc52286f51095ac794fd6eb1f23428[m
+Merge: b97755b bff4945
+Author: luyi00 <1483574999@qq.com>
+Date:   Sun Aug 25 00:03:46 2019 +0800
+
+    Merge branch 'master' of https://github.com/luyi00/myapplicationapp
+
+[33mcommit b97755bb2edbf0f1106512af145c058fb361894e[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Sun Aug 25 00:00:04 2019 +0800
+
+    添加悬赏币和下载缓存界面
+
+[33mcommit bff4945e6d50c2e9e71291a9fc151d5eae4bda1b[m
+Author: Voctor <1076376440@qq.com>
+Date:   Sat Aug 24 12:13:39 2019 +0800
+
+    添加修改密码界面
+
+[33mcommit 258eddb784f6aadd6a73c00344ce0138be897550[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Sat Aug 24 00:47:31 2019 +0800
+
+    添加我的-设置界面
+
+[33mcommit d54acf6994d852b275da5d28cd1864cab00e086e[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Fri Aug 23 11:31:00 2019 +0800
+
+    添加我的界面
+
+[33mcommit f0b90262ffc0e88f2c1ca6b2be9091526ded52c9[m
+Author: Voctor <1076376440@qq.com>
+Date:   Thu Aug 22 13:02:05 2019 +0800
+
+    登陆界面+忘记密码界面
+
+[33mcommit 47198d4174eb980b354aa1b96313b300bc35a29b[m
+Author: Voctor <1076376440@qq.com>
+Date:   Thu Aug 22 12:04:09 2019 +0800
+
+    注册界面
+
+[33mcommit f4679ca9e79fd6604daf453d164dd928143ad66f[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Thu Aug 22 11:06:52 2019 +0800
+
+    添加收藏界面2
+
+[33mcommit cf63f92f1f07d770a71b2a97c6cdf9491cfe426b[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Thu Aug 22 08:44:46 2019 +0800
+
+    添加收藏界面
+
+[33mcommit 03301677e1b4662f9f76ff15740ba2743087a1d6[m[33m ([m[1;31morigin/database[m[33m)[m
+Author: luyi00 <1483574999@qq.com>
+Date:   Wed Aug 21 09:31:24 2019 +0800
+
+    未完成1.0.0
+
+[33mcommit 39003e7e9c23e0ce25ea6dd61e6b2f58a00bf4ce[m
+Author: luyi00 <54265052+luyi00@users.noreply.github.com>
+Date:   Wed Aug 21 08:44:34 2019 +0800
+
+    Initial commit
