@@ -8,7 +8,8 @@ public class DataBase extends SQLiteOpenHelper {
     private Context mContext;
     public static final String CREATE_USER="create table user(" +
             "user_phone text primary key,"
-            +"user_password text)";
+            +"user_password text,"
+            +"head_image text)";
     public static final String CREATE_MESSAGE="create table message(" +
             "id integer primary key autoincrement,"
             +"user_phone text,"

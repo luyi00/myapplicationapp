@@ -1,5 +1,6 @@
 package com.example.administrator.myapplicationapp;
 //首页
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
@@ -13,8 +14,18 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends BaseActivity {
+import com.example.administrator.myapplicationapp.db.UserInformation;
 
+public class MainActivity extends BaseActivity {
+    //启动请求代码
+    private static final int LOGIN_REQUEST = 1;
+    //结果代码
+    public static final int LOGIN_OK=1;
+    //用户信息
+    public UserInformation uf = null;
+    //信息保存
+    private SharedPreferences.Editor editor;
+    private SharedPreferences pref;
     //碎片管理
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,6 +68,9 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //获取用户信息
+        pref = getSharedPreferences("userData",MODE_PRIVATE);
+        uf = new UserInformation(pref.getString("userPhone",""));
         //加载碎片
         init();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -72,5 +86,23 @@ public class MainActivity extends BaseActivity {
         transaction.add(R.id.fragment_container,firstFragment);
         //提交事务
         transaction.commit();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+           case LOGIN_REQUEST:
+               switch (resultCode){
+                   case LOGIN_OK:
+                       uf = (UserInformation)data.getSerializableExtra("UserInformation");
+                       editor = getSharedPreferences("userData",MODE_PRIVATE).edit();
+                       editor.putString("userPhone",uf.getUserPhone());
+                       editor.apply();
+                       break;
+                   default:
+               }
+               break;
+           default:
+        }
     }
 }

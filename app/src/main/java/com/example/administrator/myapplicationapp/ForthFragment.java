@@ -33,6 +33,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.myapplicationapp.db.UserInformation;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -46,6 +48,8 @@ public class ForthFragment extends Fragment {
     private ImageView headimage,backgroundimage,backmid;
     private TextView number01,number01_under,number02,number02_under,number03,number03_under,records,buffer;
     private Button records_more,buffer_more;
+    //启动请求代码
+    private static final int LOGIN_REQUEST = 1;
     //相册与相机
     public static final int TAKE_PHOTO=1;
     public static final int CHOOSE_PHOTO=2;
@@ -56,7 +60,7 @@ public class ForthFragment extends Fragment {
     private Uri imageUri;
 
     //用户信息
-    private String userAccount=null;
+    UserInformation uf = null;
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -96,16 +100,23 @@ public class ForthFragment extends Fragment {
         buffer03=(ImageButton)v.findViewById(R.id.buffer03);
         buffer03.setImageResource(R.drawable.video_ex);
         //获取用户信息
-
-
-        //点击事件
+        MainActivity activity = (MainActivity)getActivity();
+        assert activity != null;
+        uf = activity.uf;
+        //初始化信息
+        if(uf!=null){
+            if(uf.getUserImagePath()!=null){
+                displayImage(uf.getUserImagePath());
+            }
+        }
+        //设置点击事件
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //先判断是否登陆
-                if(userAccount==null){
+                if(uf==null){
                     Intent intent = new Intent(getActivity(),LoginActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,LOGIN_REQUEST);
                 }else{
                     Intent intent=new Intent(getActivity(),SetPage.class);
                     startActivity(intent);

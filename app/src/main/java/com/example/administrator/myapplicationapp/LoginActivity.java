@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.myapplicationapp.db.DataBase;
+import com.example.administrator.myapplicationapp.db.UserInformation;
 
 public class LoginActivity extends BaseActivity {
     private Button login;
@@ -24,7 +25,7 @@ public class LoginActivity extends BaseActivity {
     private DataBase dbHelper;        //数据库
     private boolean find = false;
 
-    public static final int RESULT_OK=1;
+    public static final int LOGIN_OK=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +55,15 @@ public class LoginActivity extends BaseActivity {
                         do{
                             String user_phone = cursor.getString(cursor.getColumnIndex("user_phone"));
                             String user_password = cursor.getString(cursor.getColumnIndex("user_password"));
+                            String head_image = cursor.getString(cursor.getColumnIndex("head_image"));
                             if(user.equals(user_phone)&&password.equals(user_password)){
                                 cursor.close();
                                 find = true;
                                 //返回上一个activity
                                 Intent intent = new Intent();
-                                intent.putExtra("user_phone",user);
-                                setResult(RESULT_OK,intent);
+                                UserInformation uf= new UserInformation(user_phone,head_image);
+                                intent.putExtra("UserInformation",uf);
+                                setResult(LOGIN_OK,intent);
                                 finish();
                             }
                         }while(cursor.moveToNext());
