@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
     public UserInformation uf = null;
     //信息保存
     private SharedPreferences.Editor editor;
-    private SharedPreferences pref;
+    private SharedPreferences pref = null;
     //碎片管理
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,9 +68,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //获取用户信息
-        pref = getSharedPreferences("userData",MODE_PRIVATE);
-        uf = new UserInformation(pref.getString("userPhone",""));
         //加载碎片
         init();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -86,6 +83,18 @@ public class MainActivity extends BaseActivity {
         transaction.add(R.id.fragment_container,firstFragment);
         //提交事务
         transaction.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //获取用户信息
+        pref = getSharedPreferences("userData",MODE_PRIVATE);
+        if(pref!=null){
+            uf = new UserInformation(pref.getString("userPhone",""));
+        }else{
+            uf = null;
+        }
     }
 
     @Override
