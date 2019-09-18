@@ -30,10 +30,9 @@ public class CollectActivity extends BaseActivity {
         //收藏界面的四个fragment
         fragmentList = new ArrayList<Fragment>();
         fragmentList.add(new collectfragmentAll());
-        fragmentList.add(new SecondFragment());
         fragmentList.add(new ThirdFragment());
         fragmentList.add(new ForthFragment());
-        FragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, new String[]{"全部", "达人动态", "科研成果","特色活动"});
+        FragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, new String[]{"全部", "科研成果","特色活动"});
         viewPager.setAdapter(adapter);
 
         tableLayout.setupWithViewPager(viewPager);

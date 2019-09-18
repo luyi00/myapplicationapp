@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/balance_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="余额账户（元）"/>
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/balance_title"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:id="@+id/balance_list"
+        android:background="#fff"
+        android:layout_below="@id/balance"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</RelativeLayout>

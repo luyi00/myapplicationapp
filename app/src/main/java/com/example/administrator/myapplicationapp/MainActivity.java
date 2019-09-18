@@ -40,7 +40,9 @@ public class MainActivity extends BaseActivity {
                     transaction.commit();
                     return true;
                 case R.id.navigation_skill:
-
+                    Fragment thirdFragment = new ThirdFragment();
+                    transaction.replace(R.id.fragment_container,thirdFragment);
+                    transaction.commit();
                     return true;
                 case R.id.navigation_mine:
                     Fragment fourFragment = new ForthFragment();

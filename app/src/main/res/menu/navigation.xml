@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/icon_medal_fill"
-        android:title="首页" />
+        android:title="技能" />
 
     <item
         android:id="@+id/navigation_community"
@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_skill"
         android:icon="@drawable/icon_exchange_fill"
-        android:title="技能" />
+        android:title="需求" />
 
     <item
         android:id="@+id/navigation_mine"
