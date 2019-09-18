@@ -1,5 +1,6 @@
 package com.example.administrator.myapplicationapp;
 //首页
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
@@ -13,10 +14,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.administrator.myapplicationapp.db.UserInformation;
+
 public class MainActivity extends BaseActivity {
-
-    private TextView mTextMessage;
-
+    //启动请求代码
+    private static final int LOGIN_REQUEST = 1;
+    //结果代码
+    public static final int LOGIN_OK=1;
+    //用户信息
+    public UserInformation uf = null;
+    //信息保存
+    private SharedPreferences.Editor editor;
+    private SharedPreferences pref = null;
+    //碎片管理
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -53,17 +63,18 @@ public class MainActivity extends BaseActivity {
             return false;
         }
     };
-    private Button bt1,bt2;
+    //初始化界面
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //加载碎片
         init();
-
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
+    //初始化碎片
     private void init(){
         //取得Fragment管理器
         Fragment firstFragment = new FirstFragment();
@@ -72,5 +83,35 @@ public class MainActivity extends BaseActivity {
         transaction.add(R.id.fragment_container,firstFragment);
         //提交事务
         transaction.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //获取用户信息
+        pref = getSharedPreferences("userData",MODE_PRIVATE);
+        if(pref!=null){
+            uf = new UserInformation(pref.getString("userPhone",""));
+        }else{
+            uf = null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+           case LOGIN_REQUEST:
+               switch (resultCode){
+                   case LOGIN_OK:
+                       uf = (UserInformation)data.getSerializableExtra("UserInformation");
+                       editor = getSharedPreferences("userData",MODE_PRIVATE).edit();
+                       editor.putString("userPhone",uf.getUserPhone());
+                       editor.apply();
+                       break;
+                   default:
+               }
+               break;
+           default:
+        }
     }
 }
