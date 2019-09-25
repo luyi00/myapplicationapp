@@ -61,6 +61,7 @@ public class ForgetActivity extends BaseActivity {
                             //传入修改密码的手机号
                             intent.putExtra("phoneNumber",PhoneText_for_str);
                             startActivity(intent);
+                            finish();
                         } else {
                             Log.d(TAG, data.toString());
                         }
@@ -165,7 +166,7 @@ public class ForgetActivity extends BaseActivity {
                     }while(cursor.moveToNext());
                 }
                 cursor.close();
-               if(findUser){
+               if(!findUser){
                    Toast.makeText(ForgetActivity.this, "账户未存在，请先注册", Toast.LENGTH_SHORT).show();
                    finish();
                }else{

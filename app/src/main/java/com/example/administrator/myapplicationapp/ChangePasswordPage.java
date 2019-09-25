@@ -32,6 +32,8 @@ public class ChangePasswordPage extends BaseActivity {
         final EditText changePassword = findViewById(R.id.password_change);
         Button nextStep = findViewById(R.id.nextStep_change);
         final CheckBox checkPassword = findViewById(R.id.radio_change);
+        //数据库
+        dbHelper = new DataBase(this,"UserStore.db",null,1);
         //获取用户账户
         Intent intent = getIntent();
         user_phone = intent.getStringExtra("phoneNumber");
@@ -62,6 +64,7 @@ public class ChangePasswordPage extends BaseActivity {
                     values.put("user_password",changePasswordStr);
                     db.update("user",values,"user_phone=?",new String[]{user_phone});
                     //返回登陆页面
+                    Toast.makeText(ChangePasswordPage.this, "修改密码成功", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(ChangePasswordPage.this,LoginActivity.class);
                     startActivity(intent1);
                 }

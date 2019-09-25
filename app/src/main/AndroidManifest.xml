@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.myapplicationapp">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChangePasswordPage"
+        <activity android:name=".VideoViewPlayer"></activity>
+        <activity
+            android:name=".ChangePasswordPage"
             android:label="重置密码"
-            android:parentActivityName=".ForgetActivity" ></activity>
+            android:parentActivityName=".ForgetActivity" />
         <activity
             android:name=".ForgetActivity"
             android:label="重置密码"
@@ -48,28 +52,34 @@
         <activity
             android:name=".MyMoney"
             android:label="我的悬赏币" />
-        <activity android:name=".BufferPage"
-            android:label="下载缓存"></activity>
-        <activity android:name=".MessageCheck"
-            android:label="消息与通知"></activity>
-        <activity android:name=".RecordPage"
+        <activity
+            android:name=".BufferPage"
+            android:label="下载缓存" />
+        <activity
+            android:name=".MessageCheck"
+            android:label="消息与通知" />
+        <activity
+            android:name=".RecordPage"
             android:label="浏览记录" />
-        <activity android:name=".TransactionRecord"
-            android:label="交易记录"/>
-        <activity android:name=".Feedbackpage"
-            android:label="反馈"/>
-        <activity android:name=".Helppage"
-            android:label="帮助"/>
+        <activity
+            android:name=".TransactionRecord"
+            android:label="交易记录" />
+        <activity
+            android:name=".Feedbackpage"
+            android:label="反馈" />
+        <activity
+            android:name=".Helppage"
+            android:label="帮助" />
+
         <provider
-            android:authorities="com.example.administrator.myapplicationapp.fileprovider"
             android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.administrator.myapplicationapp.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-                <meta-data
+            <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>

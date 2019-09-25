@@ -1,6 +1,8 @@
 package com.example.administrator.myapplicationapp;
 //首页
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
@@ -8,12 +10,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.administrator.myapplicationapp.db.DataBase;
 import com.example.administrator.myapplicationapp.db.UserInformation;
 
 public class MainActivity extends BaseActivity {
@@ -21,11 +25,15 @@ public class MainActivity extends BaseActivity {
     private static final int LOGIN_REQUEST = 1;
     //结果代码
     public static final int LOGIN_OK=1;
+    private static final String TAG = "MainActivity";
+    //创建数据库
+    private DataBase dbHelper;
     //用户信息
     public UserInformation uf = null;
     //信息保存
     private SharedPreferences.Editor editor;
     private SharedPreferences pref = null;
+    private boolean findUser = false;   //判断账户是否存在
     //碎片管理
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,6 +76,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //数据库
+        dbHelper = new DataBase(this,"UserStore.db",null,1);
         //加载碎片
         init();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -90,11 +100,23 @@ public class MainActivity extends BaseActivity {
         super.onResume();
         //获取用户信息
         pref = getSharedPreferences("userData",MODE_PRIVATE);
-        if(pref!=null){
-            uf = new UserInformation(pref.getString("userPhone",""));
-        }else{
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("user",null,null,null,null,null,null);
+        if(cursor.moveToFirst()){
+            do{
+                String user_phone = cursor.getString(cursor.getColumnIndex("user_phone"));
+                if(pref.getString("userPhone","").equals(user_phone)){
+                    cursor.close();
+                    uf = new UserInformation(pref.getString("userPhone",""));
+                    findUser = true;
+                }
+            }while(cursor.moveToNext());
+            cursor.close();
+        }
+        if(!findUser){
             uf = null;
         }
+
     }
 
     @Override

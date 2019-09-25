@@ -67,13 +67,13 @@ public class SetPage extends BaseActivity {
         pref = getSharedPreferences("userData",MODE_PRIVATE);
         uf = new UserInformation(pref.getString("userPhone",""));
         //调用数据库加载信息
+        dbHelper = new DataBase(this,"UserStore.db",null,1);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("personalMessage",null,null,null,null,null,null);
         if(cursor.moveToFirst()){
             do{
                 String user_phone = cursor.getString(cursor.getColumnIndex("user_phone"));
                 if(user_phone.equals(uf.getUserPhone())){
-                    cursor.close();
                     exist = true;
                     String head_image = cursor.getString(cursor.getColumnIndex("head_image"));
                     String user_name = cursor.getString(cursor.getColumnIndex("user_name"));
@@ -88,6 +88,7 @@ public class SetPage extends BaseActivity {
                     if(user_sex!=null){etsex.setText(user_sex);}
                     if(user_birthday!=null){etbirth.setText(user_birthday);}
                     if(user_introduce!=null){etintro.setText(user_introduce);}
+                    cursor.close();
                 }
             }while(cursor.moveToNext());
             cursor.close();
@@ -110,7 +111,7 @@ public class SetPage extends BaseActivity {
                  * setXXX方法返回Dialog对象，因此可以链式设置属性
                  */
                 final AlertDialog.Builder normalDialog = new AlertDialog.Builder(SetPage.this);
-                normalDialog.setMessage("哦吼QAQ 乃确定不是手滑了吗？");
+                normalDialog.setMessage("哦吼QAQ\n 乃确定不是手滑了吗？");
                 normalDialog.setPositiveButton("注销",
                         new DialogInterface.OnClickListener() {
                             @Override
