@@ -4,18 +4,21 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
 import java.util.HashMap;
 
 public class VideoViewPlayer extends AppCompatActivity {
-
+    String url = null;
+    RelativeLayout videoViewParent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_view_player);
-        initView();
-        ThreadPoolUtils.execute(new Runnable() {
+        videoViewParent = findViewById(R.id.videoLayout);
+//        initView();
+        Thread ThreadPoolUtils = new Thread(new Runnable() {
             @Override
             public void run() {
                 MediaMetadataRetriever retriever = new MediaMetadataRetriever();
@@ -37,9 +40,10 @@ public class VideoViewPlayer extends AppCompatActivity {
                         ex.printStackTrace();
                     }
                 }
-                showImageMessage(bitmap, positionTag, vv);
             }
         });
+        ThreadPoolUtils.start();
+
     }
 
     /**
@@ -51,11 +55,22 @@ public class VideoViewPlayer extends AppCompatActivity {
      * CCTV6高清：http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8
      * 苹果提供的测试源（点播）：http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8
      */
-    private void initView() {
-        String url="http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8";
-        VideoView videoView=findViewById(R.id.videoView);
-        videoView.setVideoPath(url);
-        videoView.requestFocus();
-        videoView.start();
-    }
+//    private void initView() {
+//        url="http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8";
+//        final CustomVideoView videoView=(CustomVideoView)findViewById(R.id.videoView);
+//        videoView.setVideoPath(url);
+//        videoView.requestFocus();
+//        videoView.start();
+//        videoViewParent.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                int[] widthAndHeight=getWidthAndHeight(holder.videoViewParent,dynamicsBean.getWeight(),dynamicsBean.getHeight());
+//                videoView.getHolder().setFixedSize(widthAndHeight[0], widthAndHeight[1]);
+//                // 重绘VideoView大小，这个方法是在重写VideoView时对外抛出方法
+//                videoView.setMeasure(widthAndHeight[0], widthAndHeight[1]);
+//                // 请求调整
+//                videoView.requestLayout();
+//            }
+//        });
+//    }
 }
